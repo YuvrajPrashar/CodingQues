@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+public class Attendance {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int attended;
+        int totalClasses;
+        int desiredAttendance;
+
+
+        System.out.print("Enter no of classes attended : ");
+        attended = sc.nextInt();
+        System.out.print("Enter crurrent no of total classes : ");
+        totalClasses = sc.nextInt();
+        desiredAttendance = 75;
+
+        float currentAttendance = ((float) attended / totalClasses) * 100;
+        System.out.println("Your current attendance is : "+currentAttendance);
+        int reqClasses = 0;
+
+
+        while (currentAttendance < desiredAttendance) {
+            attended++;
+            totalClasses++;
+            currentAttendance = ((float) attended / totalClasses) * 100;
+            reqClasses++;
+        }
+
+        System.out.println("Additional classes needed: " + reqClasses/2);
+    }
+}
